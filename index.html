@@ -1,0 +1,141 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Kolla område</title>
+    <!-- Bootstrap --> 
+    <link href="css/bootstrap.css" rel="stylesheet" media="screen">
+    <link href="css/bootstrap-responsive.css" rel="stylesheet" media="screen">
+    <link href="css/visualize.css" rel="stylesheet" media="screen">
+    <link href="css/visualize-light.css" rel="stylesheet" media="screen">
+    <link href="css/ui-lightness/jquery-ui-1.9.2.custom.css" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0" />
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyDE5KYedJtg0oLUjG8BK5LJDV2FofVC_RE&sensor=false"></script>
+  </head>
+  <body>
+  <div id="fb-root"></div>
+  <div id="main-container" class="container-fluid">
+    <div class="row span12">
+      <div id="header">
+        <div id="addressHeaderBg"></div>
+        <div id="addressHeaderBgPieace">&nbsp;</div>
+        <div id="addressHeaderDiv">
+          <h3 id="graphHeader">Kolla område</h3>
+        </div>
+      </div>
+      <div id="infoBox">
+        <div id="main" class="span4">
+        <div id="formText">
+          <p>På <strong><i>Kolla upp</i></strong> får du brotts- och olycksstatistik för ett område, genom att ange en gatuadress. Närliggande gator tillhörande gatan kontrolleras och du får statistik för de brott som begåtts och olyckor som inträffat, det senaste året.</p>
+        </div>
+        <form class="navbar-search">
+          <div id="search">
+            <input class="input-medium" id="zipcode" placeholder="Postnummer" type="text" required />
+            <button id="searchButton" class="btn" type="button">SÖK</button><br/>
+          </div>
+        </form>
+        <div id="spinner"><span id="loaderText"></span><br/><img src="img/ajax-loader.gif" /></div><br/>
+        <div id="message">
+          <div id="alert-message" class="alert alert-block alert-error fade in">  
+            <span id="errorContent"><strong>Ingen träff!</strong>
+              Prova att öka antalet månader och/eller sök-radie, och försök igen.
+            </span>
+          </div> 
+        </div>
+        <div id="extraFeatures"></div>
+        <div id="lastSearchDiv">
+          <label>Senaste sökningen:</label>
+          <button id="lastSearchButton" class="btn">Visa resultat</button>
+        </div>
+
+      </div>
+      <img id="crimeImg" src="img/mainMap.png" />
+      <div id="FBButtonDiv">
+        <div id="facebookLogin" class="fb-login-button" autologoutlink="true" data-show-faces="true" data-width="200"
+        data-max-rows="2" size="medium"></div>
+      </div>
+      <div id="rightCol" class="span5">
+          <table class="table" id="tablePerCrime">
+            <thead>
+              <tr>
+                <th scope="col">Misshandel</th>
+                <th scope="col">Stöld/inbrott</th>
+                <th scope="col">Rån</th>
+                <th scope="col">Skottlossning</th>
+                <th scope="col">Narkotikabrott</th>
+                <th scope="col">Vandalism</th>
+                <th scope="col">Trafikolyckor</th>
+                <th scope="col">Övrigt</th>
+              </tr>
+            </thead>
+             <tbody>
+              <tr class="info">
+                <td id="c1_data"></td>
+                <td id="c2_data"></td>
+                <td id="c3_data"></td>
+                <td id="c4_data"></td>
+                <td id="c5_data"></td>
+                <td id="c6_data"></td>
+                <td id="c7_data"></td>
+                <td id="tableOther"></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <table class="table" id="tablePerMonth">
+            <thead>
+              <tr>
+                <th scope="col">Jan</th>
+                <th scope="col">Feb</th>
+                <th scope="col">Mars</th>
+                <th scope="col">Apr</th>
+                <th scope="col">Maj</th>
+                <th scope="col">Jun</th>
+                <th scope="col">Jul</th>
+                <th scope="col">Aug</th>
+                <th scope="col">Sept</th>
+                <th scope="col">Okt</th>
+                <th scope="col">Nov</th>
+                <th scope="col">Dec</th>
+              </tr>
+            </thead>
+             <tbody>
+              <tr class="info">
+                <td id="d1_data"></td>
+                <td id="d2_data"></td>
+                <td id="d3_data"></td>
+                <td id="d4_data"></td>
+                <td id="d5_data"></td>
+                <td id="d6_data"></td>
+                <td id="d7_data"></td>
+                <td id="d8_data"></td>
+                <td id="d9_data"></td>
+                <td id="d10_data"></td>
+                <td id="d11_data"></td>
+                <td id="d12_data"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <br/>
+        <div id="graphDiv" class="span5">
+          <h4>Antal brott</h4>
+        </div>
+        <div id="stats" class="span5"></div>
+        <div id="stats2" class="span5"></div>
+      </div>
+    </div>
+    </div>
+    </div>
+    <!-- End of main content -->
+    <script src="js/jquery-1.7.1.min.js"></script>
+    <script src="js/jquery-ui-1.9.2.custom.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/visualize.jQuery.js"></script>
+    <script src="js/bootstrap-alert.js"></script>
+    <script src="js/apihandlers.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/facebook.js"></script>
+  </body>
+</html>

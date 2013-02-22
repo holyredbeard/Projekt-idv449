@@ -1,0 +1,11 @@
+# OBS! This file can see diffrent out on diffrent servers
+<IfModule mod_rewrite.c>
+       RewriteEngine On
+
+        # Allow images and statics to be addressable
+        RewriteCond $1 !\.(gif|jpe?g|png|css|js)$ [NC]
+        RewriteCond %{REQUEST_FILENAME} !-f
+        RewriteCond %{REQUEST_FILENAME} !-d
+		# You have to manually change to our username or directory where our controller index is host
+		RewriteRule ^(.*)$ index.php/$1 [L]
+</IfModule>
